@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VS Code Theme — Complete Color Palette</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-void:#06060a;--bg-card:#0c0c12;--bg-surface:#12121a;
+  --border-dim:rgba(255,255,255,.06);--border-mid:rgba(255,255,255,.1);
+  --text-primary:#d1ccf1;--text-secondary:rgba(255,255,255,.5);--text-dim:rgba(255,255,255,.25);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg-void);color:var(--text-primary);
+  font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;
+  min-height:100vh;overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 600px 400px at 10% 20%,rgba(96,216,240,.04),transparent),
+    radial-gradient(ellipse 500px 500px at 85% 60%,rgba(160,232,104,.03),transparent),
+    radial-gradient(ellipse 400px 300px at 50% 90%,rgba(232,112,160,.03),transparent);
+}
+.container{max-width:1080px;margin:0 auto;padding:40px 24px;position:relative;z-index:1}
+
+/* Header */
+.header{text-align:center;margin-bottom:48px}
+.header h1{
+  font-size:32px;font-weight:700;letter-spacing:-.5px;margin-bottom:8px;
+  background:linear-gradient(135deg,#a0e868,#60d8f0,#f0e070,#e870a0,#e89860);
+  background-size:300% 300%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  animation:gs 8s ease infinite;
+}
+@keyframes gs{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.header p{font-size:13px;color:var(--text-secondary)}
+
+/* Nav */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(6,6,10,.88);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border-dim);
+  padding:10px 24px;margin:0 -24px 32px;
+}
+.nav-inner{max-width:1080px;margin:0 auto;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.nav a{
+  font-size:11px;color:var(--text-secondary);text-decoration:none;
+  padding:5px 14px;border-radius:5px;border:1px solid var(--border-dim);transition:all .2s;
+}
+.nav a:hover{color:var(--text-primary);border-color:var(--border-mid);background:rgba(255,255,255,.04)}
+
+/* Section */
+.section{margin-bottom:56px}
+.section-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:var(--text-dim);margin-bottom:6px}
+.section-title{font-size:22px;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.section-desc{font-size:12px;color:var(--text-secondary);margin-bottom:20px}
+
+/* Palette */
+.palette-group{margin-bottom:28px}
+.palette-group-title{
+  font-size:13px;font-weight:600;color:rgba(255,255,255,.65);
+  margin-bottom:10px;padding-left:2px;display:flex;align-items:center;gap:8px;
+}
+.palette-group-title .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.color-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:6px}
+
+/* Color Card */
+.color-card{
+  background:var(--bg-card);border:1px solid var(--border-dim);border-radius:8px;
+  overflow:hidden;transition:border-color .2s,transform .15s;cursor:pointer;position:relative;
+}
+.color-card:hover{border-color:var(--border-mid);transform:translateY(-1px)}
+.color-card .swatch{height:36px;position:relative}
+.color-card .info{padding:7px 10px}
+.color-card .info .name{font-size:10px;color:rgba(255,255,255,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+.color-card .info .hex{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim)}
+.color-card .copied-toast{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(4px);
+  font-size:11px;color:#60d8f0;font-weight:600;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.color-card .copied-toast.show{opacity:1}
+
+/* Syntax Comparison */
+.syntax-compare{margin-bottom:28px}
+.syntax-tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
+.syntax-tab{
+  padding:6px 16px;border-radius:6px;border:1px solid var(--border-dim);
+  background:transparent;color:var(--text-secondary);cursor:pointer;font-size:11px;
+  font-family:'DM Sans',system-ui,sans-serif;transition:all .2s;
+}
+.syntax-tab.active{background:rgba(255,255,255,.08);color:var(--text-primary);border-color:var(--border-mid);font-weight:600}
+.syntax-panel{display:none}
+.syntax-panel.active{display:block}
+
+/* Comparison Row */
+.compare-row{
+  display:flex;align-items:center;gap:6px;padding:6px 10px;
+  background:var(--bg-card);border:1px solid var(--border-dim);border-radius:7px;
+  margin-bottom:4px;cursor:pointer;transition:border-color .2s;position:relative;
+}
+.compare-row:hover{border-color:var(--border-mid)}
+.compare-row .cr-swatch{width:22px;height:22px;border-radius:5px;flex-shrink:0;border:1px solid rgba(255,255,255,.08)}
+.compare-row .cr-name{font-size:10px;color:rgba(255,255,255,.6);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.compare-row .cr-hex{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);flex-shrink:0}
+.compare-row .cr-toast{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.65);font-size:10px;color:#60d8f0;font-weight:600;
+  border-radius:7px;opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.compare-row .cr-toast.show{opacity:1}
+
+/* Spectrum strip */
+.spectrum-strip{display:flex;gap:2px;border-radius:10px;overflow:hidden;height:44px;margin-bottom:6px}
+.spectrum-strip .ss-cell{
+  flex:1;display:flex;align-items:flex-end;justify-content:center;padding:5px 2px;
+  cursor:pointer;transition:flex .3s;min-width:0;
+}
+.spectrum-strip .ss-cell:hover{flex:2}
+.spectrum-strip .ss-cell span{font-size:7px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Arrow connector */
+.arrow-block{display:flex;gap:3px;margin-bottom:14px;align-items:stretch;flex-wrap:wrap}
+.arrow-block .ab-set{
+  flex:1;min-width:180px;background:var(--bg-card);border:1px solid var(--border-dim);
+  border-radius:8px;padding:10px;
+}
+.arrow-block .ab-set .ab-label{font-size:10px;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:8px}
+.arrow-block .ab-set .ab-strip{display:flex;gap:2px;border-radius:6px;overflow:hidden;height:28px}
+.arrow-block .ab-set .ab-strip div{flex:1}
+
+/* Accent Row */
+.accent-row{display:flex;gap:4px;margin-bottom:12px;align-items:stretch}
+.accent-hue-label{
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-size:9px;font-weight:600;letter-spacing:1px;color:var(--text-dim);
+  padding:4px 6px 4px 0;display:flex;align-items:center;min-width:24px;
+}
+.accent-variants{display:flex;gap:4px;flex:1}
+.accent-card{
+  flex:1;border-radius:8px;overflow:hidden;background:var(--bg-card);
+  border:1px solid var(--border-dim);cursor:pointer;transition:all .2s;position:relative;
+}
+.accent-card:hover{border-color:var(--border-mid);transform:translateY(-1px)}
+.accent-card .a-swatch{height:32px}
+.accent-card .a-info{padding:5px 8px}
+.accent-card .a-info .a-label{font-size:9px;color:rgba(255,255,255,.5);font-weight:500}
+.accent-card .a-info .a-hex{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--text-dim)}
+.accent-card .a-toast{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.7);font-size:10px;color:#60d8f0;font-weight:600;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.accent-card .a-toast.show{opacity:1}
+
+/* Full spectrum */
+.full-spectrum{display:flex;gap:2px;border-radius:12px;overflow:hidden;height:56px;margin-bottom:10px;box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.full-spectrum .fs-cell{
+  flex:1;display:flex;align-items:flex-end;justify-content:center;
+  padding:6px 1px;min-width:0;cursor:pointer;transition:flex .3s;
+}
+.full-spectrum .fs-cell:hover{flex:2.5}
+.full-spectrum .fs-cell span{font-size:6px;font-weight:600;opacity:0;transition:opacity .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.full-spectrum .fs-cell:hover span{opacity:.8}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-mid) 30%,var(--border-mid) 70%,transparent);margin:48px 0}
+
+@media(max-width:640px){
+  .color-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  .accent-row{flex-direction:column}
+  .accent-hue-label{writing-mode:horizontal-tb}
+  .accent-variants{flex-wrap:wrap}
+  .arrow-block{flex-direction:column}
+  .header h1{font-size:24px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>Complete Color Palette</h1>
+  <p>VS Code Deep Theme — UI配色 / Spinelシンタックス(+パステル3段階) / サイバーアクセント</p>
+</div>
+
+<div class="nav"><div class="nav-inner">
+  <a href="#ui-abyss">Abyss Circuit</a>
+  <a href="#ui-emerald">Emerald Neon</a>
+  <a href="#ui-midnight">Midnight Prism</a>
+  <a href="#syntax">Syntax (4種)</a>
+  <a href="#accents">Cyber Accents</a>
+  <a href="#full-spectrum">Full Spectrum</a>
+</div></div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- UI PALETTES                           -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="ui-abyss">
+  <div class="section-label">UI Palette 01</div>
+  <div class="section-title">Abyss Circuit</div>
+  <div class="section-desc">深海の青を基調 — 深海 × 回路基板</div>
+  <div class="palette-group">
+    <div class="palette-group-title"><span class="dot" style="background:#4b82e9"></span>Editor</div>
+    <div class="color-grid" id="g-a-e"></div>
+  </div>
+  <div class="palette-group">
+    <div class="palette-group-title"><span class="dot" style="background:#4b82e9"></span>UI Colors</div>
+    <div class="color-grid" id="g-a-u"></div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="section" id="ui-emerald">
+  <div class="section-label">UI Palette 02</div>
+  <div class="section-title">Emerald Neon</div>
+  <div class="section-desc">深緑の森をベース — 深緑の森 × ネオンサイン</div>
+  <div class="palette-group">
+    <div class="palette-group-title"><span class="dot" style="background:#5ac16c"></span>Editor</div>
+    <div class="color-grid" id="g-e-e"></div>
+  </div>
+  <div class="palette-group">
+    <div class="palette-group-title"><span class="dot" style="background:#5ac16c"></span>UI Colors</div>
+    <div class="color-grid" id="g-e-u"></div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="section" id="ui-midnight">
+  <div class="section-label">UI Palette 03</div>
+  <div class="section-title">Midnight Prism</div>
+  <div class="section-desc">濃紺と深緑を混ぜた静謐なベース — 深夜の水面 × プリズム</div>
+  <div class="palette-group">
+    <div class="palette-group-title"><span class="dot" style="background:#d464eb"></span>Editor</div>
+    <div class="color-grid" id="g-m-e"></div>
+  </div>
+  <div class="palette-group">
+    <div class="palette-group-title"><span class="dot" style="background:#d464eb"></span>UI Colors</div>
+    <div class="color-grid" id="g-m-u"></div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- SYNTAX HIGHLIGHTING (4 variants)      -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="syntax">
+  <div class="section-label">Syntax Highlighting</div>
+  <div class="section-title">Spinel Syntax Colors</div>
+  <div class="section-desc">Original + パステル3段階 — タブで切り替え、クリックでHEXコピー</div>
+
+  <!-- Comparison strips -->
+  <div class="arrow-block" id="syntax-strips"></div>
+
+  <!-- Tabs -->
+  <div class="syntax-tabs" id="syntax-tabs"></div>
+
+  <!-- Panels -->
+  <div id="syntax-panels"></div>
+</div>
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- CYBER ACCENTS                         -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="accents">
+  <div class="section-label">Accent Colors</div>
+  <div class="section-title">Cyber Accent Palette</div>
+  <div class="section-desc">5色 × 4段階（Neon / Vivid / Pastel / Muted）</div>
+  <div id="accent-grid"></div>
+</div>
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- FULL SPECTRUM                         -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="full-spectrum">
+  <div class="section-label">Overview</div>
+  <div class="section-title">Full Spectrum</div>
+  <div class="section-desc">このパレットに含まれる全色の一覧 — ホバーで確認、クリックでコピー</div>
+  <div class="full-spectrum" id="fs-bar"></div>
+  <p style="font-size:10px;color:var(--text-dim);text-align:center;margin-top:8px">全 <span id="total-count">0</span> 色</p>
+</div>
+
+<div style="text-align:center;padding:32px 0 16px;font-size:10px;color:var(--text-dim)">
+  VS Code Deep Theme — Complete Color Palette
+</div>
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════
+
+const uiPalettes = {
+  abyss: {
+    editor: [
+      {n:"editor.background",h:"#0a1218"},{n:"editorGutter.background",h:"#0b1319"},
+    ],
+    ui: [
+      {n:"focusBorder",h:"#4b82e920"},{n:"activityBar.background",h:"#0f1c24"},
+      {n:"activityBar.foreground",h:"#4a7a6e"},{n:"activityBar.border",h:"#1a3d3520"},
+      {n:"sideBar.background",h:"#0c1519"},{n:"sideBar.border",h:"#1e4a4030"},
+      {n:"statusBar.background",h:"#0f1c24"},{n:"statusBar.border",h:"#4b82e930"},
+      {n:"titleBar.activeBackground",h:"#0f1c24"},{n:"titleBar.border",h:"#4b82e925"},
+      {n:"editorGroupHeader.tabsBackground",h:"#0c1519"},{n:"tab.border",h:"#00000000"},
+      {n:"tab.activeBackground",h:"#0e1a20"},{n:"tab.activeBorder",h:"#d464eba0"},
+      {n:"tab.inactiveBackground",h:"#0c1519"},
+    ]
+  },
+  emerald: {
+    editor: [
+      {n:"editor.background",h:"#091412"},{n:"editorGutter.background",h:"#0a1513"},
+    ],
+    ui: [
+      {n:"focusBorder",h:"#5ac16c20"},{n:"activityBar.background",h:"#111f1c"},
+      {n:"activityBar.foreground",h:"#4e8a6a"},{n:"activityBar.border",h:"#1a4a3020"},
+      {n:"sideBar.background",h:"#0b1613"},{n:"sideBar.border",h:"#2a6a4030"},
+      {n:"statusBar.background",h:"#111f1c"},{n:"statusBar.border",h:"#5ac16c30"},
+      {n:"titleBar.activeBackground",h:"#111f1c"},{n:"titleBar.border",h:"#5ac16c25"},
+      {n:"editorGroupHeader.tabsBackground",h:"#0b1613"},{n:"tab.border",h:"#00000000"},
+      {n:"tab.activeBackground",h:"#0d1a17"},{n:"tab.activeBorder",h:"#5ac16ca0"},
+      {n:"tab.inactiveBackground",h:"#0b1613"},
+    ]
+  },
+  midnight: {
+    editor: [
+      {n:"editor.background",h:"#0b1420"},{n:"editorGutter.background",h:"#0c1521"},
+    ],
+    ui: [
+      {n:"focusBorder",h:"#d464eb20"},{n:"activityBar.background",h:"#101e2c"},
+      {n:"activityBar.foreground",h:"#4a7890"},{n:"activityBar.border",h:"#1a3a5020"},
+      {n:"sideBar.background",h:"#0d1622"},{n:"sideBar.border",h:"#2a5a7030"},
+      {n:"statusBar.background",h:"#101e2c"},{n:"statusBar.border",h:"#d464eb30"},
+      {n:"titleBar.activeBackground",h:"#101e2c"},{n:"titleBar.border",h:"#d464eb25"},
+      {n:"editorGroupHeader.tabsBackground",h:"#0d1622"},{n:"tab.border",h:"#00000000"},
+      {n:"tab.activeBackground",h:"#0f1a26"},{n:"tab.activeBorder",h:"#d464eba0"},
+      {n:"tab.inactiveBackground",h:"#0d1622"},
+    ]
+  }
+};
+
+const syntaxKeys = [
+  "editor.foreground","variables","properties","keywords / types","numbers",
+  "classes / namespaces","functions (declaration)","functions (call)","strings",
+  "parameters","symbols / keys","operators / punctuation","constants (language)",
+  "comments","regexp","YARD documentation","instance variables",
+  "diff: deleted","diff: changed","diff: inserted"
+];
+
+const syntaxVariants = [
+  {
+    id:"original", label:"Original", desc:"Spinelオリジナルの鮮やかな配色",
+    dot:"#d464eb",
+    colors:["#d1ccf1","#18b5e4","#eee0e0","#dd5555","#eee385","#4b82e9","#d464eb","#d1ccf1","#5ac16c","#ff9a3b","#7dcfcf","#d1ccf1","#ed2a88","#bea17f","#a6cc5f","#f1cb9f","#eee0e0","#dd5555","#ff9a3b","#5ac16c"]
+  },
+  {
+    id:"vivid-pastel", label:"Vivid Pastel", desc:"パステル感を加えつつ元の鮮やかさを活かしたトーン",
+    dot:"#c880dc",
+    colors:["#d1ccf1","#58bce0","#ecdce0","#dc7070","#e4d890","#6c94dc","#c880dc","#d1ccf1","#70bc90","#dca468","#80ccc4","#d1ccf1","#dc6c94","#9c8874","#a8c07c","#e8c498","#ecdce0","#dc7070","#dca468","#70bc90"]
+  },
+  {
+    id:"semi-pastel", label:"Semi-Pastel", desc:"元の色味を残しつつ彩度を程よく抑えたバランス型",
+    dot:"#c488d8",
+    colors:["#d1ccf1","#6cc0e0","#e8dce0","#d87878","#e0d898","#7c9cd8","#c488d8","#d1ccf1","#7cc098","#d8a878","#8cc8c4","#d1ccf1","#d47898","#988878","#acc088","#e0bc90","#e8dce0","#d87878","#d8a878","#7cc098"]
+  },
+  {
+    id:"soft-pastel", label:"Soft Pastel", desc:"彩度を落とし明度を上げた最も柔らかいトーン",
+    dot:"#c498d4",
+    colors:["#d1ccf1","#82c8e0","#e4dce0","#d49090","#ddd8a4","#90a8d4","#c498d4","#d1ccf1","#8cc4a4","#d4b48c","#9cc4c0","#d1ccf1","#d08ca8","#908070","#b4c494","#d8b898","#e4dce0","#d49090","#d4b48c","#8cc4a4"]
+  },
+];
+
+const cyberAccents = [
+  { hue:"黄緑",  variants:[{l:"Neon",h:"#b8ff66"},{l:"Vivid",h:"#a0e868"},{l:"Pastel",h:"#8cd478"},{l:"Muted",h:"#7cc07c"}]},
+  { hue:"水色",  variants:[{l:"Neon",h:"#66f0ff"},{l:"Vivid",h:"#60d8f0"},{l:"Pastel",h:"#78c8e0"},{l:"Muted",h:"#80b8d0"}]},
+  { hue:"黄色",  variants:[{l:"Neon",h:"#fff066"},{l:"Vivid",h:"#f0e070"},{l:"Pastel",h:"#e0d488"},{l:"Muted",h:"#d0c890"}]},
+  { hue:"ピンク",variants:[{l:"Neon",h:"#ff66b8"},{l:"Vivid",h:"#e870a0"},{l:"Pastel",h:"#d48098"},{l:"Muted",h:"#c48898"}]},
+  { hue:"オレンジ",variants:[{l:"Neon",h:"#ff9044"},{l:"Vivid",h:"#e89860"},{l:"Pastel",h:"#d4a478"},{l:"Muted",h:"#c8a888"}]},
+];
+
+// ═══════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════
+const isLight = h => {
+  const c=h.replace('#','').slice(0,6);
+  const r=parseInt(c.slice(0,2),16),g=parseInt(c.slice(2,4),16),b=parseInt(c.slice(4,6),16);
+  return (r*299+g*587+b*114)/1000>140;
+};
+const flash = el => { el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),700); };
+
+// Global floating toast
+let gToastTimer;
+function showGlobalToast(hex) {
+  let t = document.getElementById('global-toast');
+  if (!t) {
+    t = document.createElement('div'); t.id='global-toast';
+    t.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);padding:8px 20px;border-radius:8px;background:rgba(12,12,18,.92);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px);font-family:"JetBrains Mono",monospace;font-size:12px;color:#60d8f0;z-index:9999;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;display:flex;align-items:center;gap:10px';
+    document.body.appendChild(t);
+  }
+  t.innerHTML = '<span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:'+hex+';border:1px solid rgba(255,255,255,.15);flex-shrink:0"></span> Copied: ' + hex;
+  t.style.opacity='1'; t.style.transform='translateX(-50%) translateY(0)';
+  clearTimeout(gToastTimer);
+  gToastTimer = setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(-50%) translateY(20px)'; }, 1200);
+}
+const copy = hex => {
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(hex).catch(()=> fallbackCopy(hex));
+    } else {
+      fallbackCopy(hex);
+    }
+  } catch(e) { fallbackCopy(hex); }
+};
+const fallbackCopy = text => {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  try { document.execCommand('copy'); } catch(e) {}
+  document.body.removeChild(ta);
+};
+
+// ═══════════════════════════════════════
+// RENDER: Color Grid
+// ═══════════════════════════════════════
+function renderGrid(id, items) {
+  const c = document.getElementById(id);
+  items.forEach(x => {
+    const d = document.createElement('div'); d.className='color-card';
+    const base = x.h.slice(0,7), hasA = x.h.length>7, tC = isLight(base)?'rgba(0,0,0,.6)':'rgba(255,255,255,.6)';
+    const bg = hasA
+      ? `background:linear-gradient(135deg,${x.h},${x.h}),repeating-conic-gradient(#1a1a1a 0% 25%,#2a2a2a 0% 50%) 0 0/8px 8px`
+      : `background:${x.h}`;
+    d.innerHTML=`<div class="swatch" style="${bg}"><span style="position:absolute;right:6px;bottom:3px;font-family:'JetBrains Mono',monospace;font-size:8px;color:${tC}">${x.h}</span></div><div class="info"><div class="name">${x.n}</div><div class="hex">${x.h}</div></div><div class="copied-toast">Copied!</div>`;
+    d.onclick=()=>{copy(x.h);flash(d.querySelector('.copied-toast'));showGlobalToast(x.h)};
+    c.appendChild(d);
+  });
+}
+
+// ═══════════════════════════════════════
+// RENDER: Syntax Section
+// ═══════════════════════════════════════
+function renderSyntax() {
+  // Comparison strips
+  const strips = document.getElementById('syntax-strips');
+  syntaxVariants.forEach(v => {
+    const s = document.createElement('div'); s.className='ab-set';
+    s.innerHTML=`<div class="ab-label">${v.label}</div><div class="ab-strip">${
+      v.colors.filter((_,i)=>i>0).map(c=>`<div style="background:${c}"></div>`).join('')
+    }</div>`;
+    strips.appendChild(s);
+  });
+
+  // Tabs
+  const tabs = document.getElementById('syntax-tabs');
+  const panels = document.getElementById('syntax-panels');
+  syntaxVariants.forEach((v,vi) => {
+    const btn = document.createElement('button');
+    btn.className = 'syntax-tab' + (vi===0?' active':'');
+    btn.textContent = v.label;
+    btn.onclick = () => {
+      document.querySelectorAll('.syntax-tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.syntax-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('sp-'+v.id).classList.add('active');
+    };
+    tabs.appendChild(btn);
+
+    const panel = document.createElement('div');
+    panel.className = 'syntax-panel' + (vi===0?' active':'');
+    panel.id = 'sp-'+v.id;
+    panel.innerHTML = `<p style="font-size:11px;color:var(--text-secondary);margin-bottom:12px">${v.desc}</p>`;
+
+    const grid = document.createElement('div');
+    grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px';
+
+    syntaxKeys.forEach((key,ki) => {
+      const hex = v.colors[ki];
+      const origHex = syntaxVariants[0].colors[ki];
+      const changed = hex !== origHex;
+
+      const row = document.createElement('div');
+      row.className = 'compare-row';
+      row.onclick = () => { copy(hex); flash(row.querySelector('.cr-toast')); showGlobalToast(hex); };
+
+      let inner = `<div class="cr-swatch" style="background:${hex}"></div>`;
+      if (changed && vi > 0) {
+        inner += `<div class="cr-swatch" style="background:${origHex};opacity:.35;width:14px;height:14px;margin-left:-10px;margin-right:-2px"></div>`;
+      }
+      inner += `<div class="cr-name">${key}</div><div class="cr-hex">${hex}</div><div class="cr-toast">Copied!</div>`;
+      row.innerHTML = inner;
+      grid.appendChild(row);
+    });
+
+    panel.appendChild(grid);
+    panels.appendChild(panel);
+  });
+}
+
+// ═══════════════════════════════════════
+// RENDER: Accents
+// ═══════════════════════════════════════
+function renderAccents() {
+  const c = document.getElementById('accent-grid');
+  cyberAccents.forEach(hue => {
+    const row = document.createElement('div'); row.className='accent-row';
+    const lbl = document.createElement('div'); lbl.className='accent-hue-label'; lbl.textContent=hue.hue;
+    row.appendChild(lbl);
+    const vs = document.createElement('div'); vs.className='accent-variants';
+    hue.variants.forEach(v => {
+      const card = document.createElement('div'); card.className='accent-card';
+      card.innerHTML=`<div class="a-swatch" style="background:${v.h};box-shadow:inset 0 -14px 18px -6px rgba(0,0,0,.3)"></div><div class="a-info"><div class="a-label">${v.l}</div><div class="a-hex">${v.h}</div></div><div class="a-toast">Copied!</div>`;
+      card.onclick=()=>{copy(v.h);flash(card.querySelector('.a-toast'));showGlobalToast(v.h)};
+      vs.appendChild(card);
+    });
+    row.appendChild(vs);
+    c.appendChild(row);
+  });
+}
+
+// ═══════════════════════════════════════
+// RENDER: Full Spectrum
+// ═══════════════════════════════════════
+function renderSpectrum() {
+  const bar = document.getElementById('fs-bar');
+  const all = [], seen = new Set();
+  const add = (n,h) => { const k=h.slice(0,7).toLowerCase(); if(seen.has(k)||h==='#00000000')return; seen.add(k); all.push({n,h:h.slice(0,7)}); };
+
+  Object.values(uiPalettes).forEach(p=>{p.editor.forEach(c=>add(c.n,c.h));p.ui.forEach(c=>add(c.n,c.h))});
+  syntaxVariants.forEach(v=>v.colors.forEach((c,i)=>add(v.label+': '+syntaxKeys[i],c)));
+  cyberAccents.forEach(h=>h.variants.forEach(v=>add(h.hue+' '+v.l,v.h)));
+
+  const hue=h=>{const c=h.replace('#','');const r=parseInt(c.slice(0,2),16)/255,g=parseInt(c.slice(2,4),16)/255,b=parseInt(c.slice(4,6),16)/255;const mx=Math.max(r,g,b),mn=Math.min(r,g,b),d=mx-mn;if(d===0)return 0;let v;if(mx===r)v=((g-b)/d)%6;else if(mx===g)v=(b-r)/d+2;else v=(r-g)/d+4;return(v*60+360)%360};
+  all.sort((a,b)=>hue(a.h)-hue(b.h));
+
+  all.forEach(c=>{
+    const cell=document.createElement('div');cell.className='fs-cell';cell.style.background=c.h;
+    cell.title=c.n+'\n'+c.h;
+    const l=isLight(c.h);
+    cell.innerHTML=`<span style="color:${l?'rgba(0,0,0,.5)':'rgba(255,255,255,.6)'}">${c.h}</span>`;
+    cell.onclick=()=>{copy(c.h);showGlobalToast(c.h)};
+    bar.appendChild(cell);
+  });
+  document.getElementById('total-count').textContent = all.length;
+}
+
+// ═══════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════
+renderGrid('g-a-e', uiPalettes.abyss.editor);
+renderGrid('g-a-u', uiPalettes.abyss.ui);
+renderGrid('g-e-e', uiPalettes.emerald.editor);
+renderGrid('g-e-u', uiPalettes.emerald.ui);
+renderGrid('g-m-e', uiPalettes.midnight.editor);
+renderGrid('g-m-u', uiPalettes.midnight.ui);
+renderSyntax();
+renderAccents();
+renderSpectrum();
+</script>
+</body>
+</html>
