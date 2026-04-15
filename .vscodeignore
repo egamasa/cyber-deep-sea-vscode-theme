@@ -1,0 +1,11 @@
+.vscode/**
+.git/**
+.gitignore
+node_modules/**
+package-lock.json
+THEME_DESIGN.md
+complete-color-palette.html
+color-palette.html
+*.vsix
+*.svg
+samples/**

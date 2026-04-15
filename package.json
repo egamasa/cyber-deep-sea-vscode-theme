@@ -1,0 +1,36 @@
+{
+  "name": "cyber-deep-sea-vscode-theme",
+  "displayName": "Cyber Deep Sea",
+  "description": "A dark color theme inspired by the deep sea and cyber aesthetics. Eye-friendly with muted cyan-gray tones.",
+  "author": "egamasa",
+  "publisher": "egamasa",
+  "icon": "icon.png",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/egamasa/cyber-deep-sea-vscode-theme"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Cyber Deep Sea",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cyber-deep-sea-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.8.0",
+    "prettier": "^3.8.3"
+  }
+}
