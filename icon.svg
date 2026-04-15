@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="60%" r="70%">
+      <stop offset="0%" stop-color="#0f1c24"/>
+      <stop offset="100%" stop-color="#0a1218"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#48d8a0" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#48d8a0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="256" height="256" rx="24" fill="url(#bg)"/>
+
+  <!-- Subtle glow -->
+  <circle cx="128" cy="128" r="90" fill="url(#glow)"/>
+
+  <!-- Deep sea waves -->
+  <path d="M 30 190 Q 80 170, 128 185 Q 176 200, 226 180" stroke="#4a7a6e" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M 20 210 Q 75 190, 128 205 Q 181 220, 236 200" stroke="#4a7a6e" stroke-width="1" fill="none" opacity="0.25"/>
+
+  <!-- Left bracket { -->
+  <path d="M 88 68 C 68 68, 58 78, 58 98 L 58 114 C 58 124, 48 128, 38 128 C 48 128, 58 132, 58 142 L 58 158 C 58 178, 68 188, 88 188" stroke="#78c8e8" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.9"/>
+  <!-- Right bracket } -->
+  <path d="M 168 68 C 188 68, 198 78, 198 98 L 198 114 C 198 124, 208 128, 218 128 C 208 128, 198 132, 198 142 L 198 158 C 198 178, 188 188, 168 188" stroke="#78c8e8" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.9"/>
+
+  <!-- Inner accent dot (cyber core) -->
+  <circle cx="128" cy="128" r="8" fill="#48d8a0" opacity="0.9"/>
+  <circle cx="128" cy="128" r="14" fill="none" stroke="#48d8a0" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Floating particles (outside brackets) -->
+  <circle cx="30" cy="60" r="3.5" fill="#78c8e8" opacity="0.5"/>
+  <circle cx="226" cy="52" r="3" fill="#48d8a0" opacity="0.4"/>
+  <circle cx="24" cy="140" r="2.5" fill="#d87878" opacity="0.4"/>
+  <circle cx="232" cy="148" r="3" fill="#c488d8" opacity="0.4"/>
+  <circle cx="180" cy="42" r="2.5" fill="#8cc8c4" opacity="0.4"/>
+  <circle cx="72" cy="38" r="3" fill="#d8a878" opacity="0.45"/>
+</svg>
