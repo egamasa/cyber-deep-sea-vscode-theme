@@ -5,7 +5,7 @@
   "author": "egamasa",
   "publisher": "egamasa",
   "icon": "icon.png",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,6 +14,16 @@
   "engines": {
     "vscode": "^1.70.0"
   },
+  "keywords": [
+    "theme",
+    "dark",
+    "dark theme",
+    "color-theme",
+    "cyber",
+    "deep sea",
+    "ocean",
+    "cyan"
+  ],
   "categories": [
     "Themes"
   ],
