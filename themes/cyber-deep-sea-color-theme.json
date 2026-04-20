@@ -11,6 +11,7 @@
     "focusBorder": "#78c8e880",
     "icon.foreground": "#66f0ffaa",
     "selection.background": "#4a7a6e50",
+    "textPreformat.foreground": "#78d4c8",
 
     // ── Activity Bar ──
     "activityBar.background": "#0f1c24",
@@ -453,8 +454,6 @@
         "constant.other.symbol.hashkey.parameter.function",
         "variable.other",
         "comment.line.parameter.yard",
-        "markup.inline.raw.string.markdown",
-        "markup.fenced_code.block.markdown",
         "entity.other.attribute-name.html",
         "constant.other.color.rgb-value.hex.css",
         "support.constant.color.w3c-standard-color-name.css",
@@ -463,6 +462,17 @@
       "settings": {
         "foreground": "#d8a878",
         "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown code (inline & fenced)",
+      "scope": [
+        "markup.inline.raw.string.markdown",
+        "markup.fenced_code.block.markdown"
+      ],
+      "settings": {
+        "foreground": "#78d4c8",
+        "fontStyle": ""
       }
     },
     {
