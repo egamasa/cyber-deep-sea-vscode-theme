@@ -390,7 +390,10 @@
     },
     {
       "name": "Comments",
-      "scope": ["punctuation.definition.comment", "comment"],
+      "scope": [
+        "punctuation.definition.comment",
+        "comment"
+      ],
       "settings": {
         "foreground": "#6a8a80",
         "fontStyle": "italic"
@@ -481,7 +484,10 @@
     },
     {
       "name": "Regexp",
-      "scope": ["string.regexp", "punctuation.section.regexp"],
+      "scope": [
+        "string.regexp",
+        "punctuation.section.regexp"
+      ],
       "settings": {
         "foreground": "#acc088",
         "fontStyle": ""
@@ -566,7 +572,10 @@
     },
     {
       "name": "Language constants and special variables",
-      "scope": ["constant.language", "variable.language.this"],
+      "scope": [
+        "constant.language",
+        "variable.language.this"
+      ],
       "settings": {
         "foreground": "#d47898",
         "fontStyle": "bold"
@@ -619,7 +628,9 @@
     },
     {
       "name": "Method and function calls",
-      "scope": ["meta.function-call"],
+      "scope": [
+        "meta.function-call"
+      ],
       "settings": {
         "foreground": "#b0ccd0"
       }
@@ -647,7 +658,10 @@
     },
     {
       "name": "diff: deleted",
-      "scope": ["markup.deleted", "punctuation.definition.deleted.diff"],
+      "scope": [
+        "markup.deleted",
+        "punctuation.definition.deleted.diff"
+      ],
       "settings": {
         "fontStyle": "",
         "foreground": "#d87878"
@@ -663,7 +677,10 @@
     },
     {
       "name": "diff: inserted",
-      "scope": ["markup.inserted", "punctuation.definition.inserted.diff"],
+      "scope": [
+        "markup.inserted",
+        "punctuation.definition.inserted.diff"
+      ],
       "settings": {
         "foreground": "#7cc098"
       }
