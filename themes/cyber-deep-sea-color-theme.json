@@ -48,7 +48,8 @@
     // ── Editor ──
     "editor.background": "#0a1218",
     "editor.foreground": "#b0ccd0",
-    "editor.lineHighlightBackground": "#0f1c24",
+    "editor.lineHighlightBackground": "#0f2029",
+    "editor.lineHighlightBorder": "#66f0ff30",
     "editor.selectionBackground": "#4a7a6e40",
     "editor.selectionHighlightBackground": "#4a7a6e25",
     "editor.inactiveSelectionBackground": "#4a7a6e20",
