@@ -137,7 +137,7 @@
     "gitDecoration.deletedResourceForeground": "#d87878",
     "gitDecoration.renamedResourceForeground": "#8cc8c4",
     "gitDecoration.untrackedResourceForeground": "#7cc098",
-    "gitDecoration.ignoredResourceForeground": "#7c9cd850",
+    "gitDecoration.ignoredResourceForeground": "#7c9cd880",
     "gitDecoration.conflictingResourceForeground": "#d8a060",
     "gitDecoration.stageModifiedResourceForeground": "#78c8e8c0",
     "gitDecoration.stageDeletedResourceForeground": "#d87878c0",
