@@ -1,6 +1,7 @@
 .vscode/**
 .git/**
 .gitignore
+.ruby-lsp/**
 node_modules/**
 package-lock.json
 THEME_DESIGN.md
