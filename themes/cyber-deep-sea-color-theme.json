@@ -42,7 +42,7 @@
     // ── Dropdown ──
     "dropdown.background": "#0c1519",
     "dropdown.foreground": "#a0bcc0",
-    "dropdown.border": "#1e4a4030",
+    "dropdown.border": "#48d8a060",
     "dropdown.listBackground": "#0a1218",
 
     // ── Editor ──
@@ -145,7 +145,7 @@
     // ── Input ──
     "input.background": "#0a1218",
     "input.foreground": "#a0bcc0",
-    "input.border": "#1e4a4040",
+    "input.border": "#48d8a060",
     "input.placeholderForeground": "#7c9cd860",
     "inputOption.activeBorder": "#0cf38880",
     "inputOption.activeBackground": "#0cf38820",
